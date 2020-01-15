@@ -1,0 +1,15 @@
+---
+- hosts: web
+  become: yes
+  gather_facts: no
+
+  tasks:
+    - name: del users
+      user:
+        name: "{{ item }}"
+        remove: yes
+        state: absent
+      loop:
+        - user01
+        - user02
+        - user03

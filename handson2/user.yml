@@ -1,0 +1,14 @@
+---
+- hosts: web
+  become: yes
+  gather_facts: no
+
+  tasks:
+    - name: add users
+      XXX:
+        name: XXX
+        password: "{{ XXX | password_hash('sha512') }}"
+      loop:
+        - user01
+        - user02
+        - user03
