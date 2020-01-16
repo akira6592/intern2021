@@ -23,7 +23,7 @@ source /opt/ansible/bin/activate
 cd ~/intern2021/handson2
 ```
 
-- `ls` コマンドで、以下の3つのファイルがあることを確認します。
+- `ls` コマンドで、以下のファイルがあることを確認します。
   - `inventory.ini`: インベントリ
   - `user.yml`: Playbook （要編集）
 
