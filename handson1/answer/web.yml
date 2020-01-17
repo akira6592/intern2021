@@ -9,20 +9,19 @@
         name: httpd
         state: latest
 
-    - name: configure Listen Port
-      lineinfile:
-        path: /etc/httpd/conf/httpd.conf
-        regexp: '^Listen 80$'
-        insertafter: '^#Listen '
-        line: 'Listen 8080'
-        validate: httpd -tf %s
-      notify:
-        - restart httpd
-
     - name: deploy index.html
       copy:
         src: index.html
         dest: /var/www/html/index.html
+
+    - name: configure Listen Port
+      lineinfile:
+        path: /etc/httpd/conf/httpd.conf
+        regexp: '^Listen 80$'
+        line: 'Listen 8080'
+        validate: httpd -tf %s
+      notify:
+        - restart httpd
 
   handlers:
     - name: restart httpd

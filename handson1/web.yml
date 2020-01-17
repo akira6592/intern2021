@@ -9,6 +9,11 @@
         name: XXX
         state: XXX
 
+    - name: deploy index.html
+      XXX:
+        src: XXX
+        dest: /var/www/html/index.html
+
     - name: configure Listen Port
       lineinfile:
         path: /etc/httpd/conf/httpd.conf
@@ -17,11 +22,6 @@
         validate: httpd -tf %s
       notify:
         - restart httpd
-
-    - name: deploy index.html
-      XXX:
-        src: XXX
-        dest: /var/www/html/index.html
 
   handlers:
     - name: restart httpd
